@@ -3,12 +3,12 @@ package com.jardoapps.timesheet.plugin.stt;
 import org.pf4j.Extension;
 import org.pf4j.Plugin;
 
-import com.jardoapps.timesheet.plugin.api.TimesheetFillerPlugin;
+import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension;
 
 public class SimpleTaskTrackerPlugin extends Plugin {
 
 	@Extension
-	public static class SimpleTaskTrackerPluginExtension implements TimesheetFillerPlugin {
+	public static class SttExtension implements TimesheetFillerExtension {
 
 		@Override
 		public boolean supportsLoading() {

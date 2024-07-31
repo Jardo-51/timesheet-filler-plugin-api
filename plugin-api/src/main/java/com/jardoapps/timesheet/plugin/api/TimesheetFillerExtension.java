@@ -8,7 +8,7 @@ import org.pf4j.ExtensionPoint;
 import lombok.Builder;
 import lombok.Value;
 
-public interface TimesheetFillerPlugin extends ExtensionPoint {
+public interface TimesheetFillerExtension extends ExtensionPoint {
 
 	boolean supportsLoading();
 
