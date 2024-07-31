@@ -34,6 +34,7 @@ public class SttRecordLoader implements RecordLoader {
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 			String line;
+			reader.readLine(); // Skip header line
 			while ((line = reader.readLine()) != null) {
 				List<String> values = splitCsvValues(line);
 				records.add(createRecord(values));
