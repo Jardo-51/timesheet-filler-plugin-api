@@ -35,7 +35,7 @@ public interface TimesheetFillerExtension extends ExtensionPoint {
 
 	public interface RecordSaver {
 		List<ParamInfo> getParamInfos();
-		void saveRecords(List<TimesheetRecord> records, Map<String, String> params);
+		void saveRecords(List<TimesheetRecord> records, Map<String, String> params) throws Exception;
 	}
 
 	// TODO: resolve lombok issue
