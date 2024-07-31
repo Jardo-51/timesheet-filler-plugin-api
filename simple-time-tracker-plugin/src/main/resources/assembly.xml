@@ -13,7 +13,8 @@
 				<include>*:jar:*</include>
 			</includes>
 			<excludes>
-				<exclude>com.jardoapps:*</exclude>
+				<exclude>org.slf4j:*</exclude>
+				<exclude>com.jardoapps.timesheet:timesheet-filler-plugin-api</exclude>
 			</excludes>
 		</dependencySet>
 	</dependencySets>
