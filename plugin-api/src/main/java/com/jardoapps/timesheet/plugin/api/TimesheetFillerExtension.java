@@ -28,7 +28,7 @@ public interface TimesheetFillerExtension extends ExtensionPoint {
 
 	public interface RecordLoader {
 		List<ParamInfo> getParamInfos();
-		List<TimesheetRecord> loadRecords(Map<String, String> params);
+		List<TimesheetRecord> loadRecords(Map<String, String> params) throws Exception;
 	}
 
 	public interface RecordTransformer {
