@@ -39,8 +39,8 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Plugin-Id>simple-time-tracker-plugin</Plugin-Id>
-							<Plugin-Version>0.1.0</Plugin-Version>
+							<Plugin-Id>${project.artifactId}</Plugin-Id>
+							<Plugin-Version>${project.version}</Plugin-Version>
 							<Plugin-Provider>Jardo</Plugin-Provider>
 						</manifestEntries>
 					</archive>
