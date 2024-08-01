@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.pf4j.ExtensionPoint;
 
+import lombok.Builder;
+import lombok.Value;
+
 public interface TimesheetFillerExtension extends ExtensionPoint {
 
 	boolean supportsLoading();
@@ -38,9 +41,8 @@ public interface TimesheetFillerExtension extends ExtensionPoint {
 		void saveRecords(List<TimesheetRecord> records, Map<String, String> params) throws Exception;
 	}
 
-	// TODO: resolve lombok issue
-	// @Value
-	// @Builder
+	@Value
+	@Builder
 	public static class ParamInfo {
 		private String id;
 		private ParamType type;
