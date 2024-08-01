@@ -13,6 +13,9 @@ import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension.ParamInfo;
 import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension.RecordLoader;
 import com.jardoapps.timesheet.plugin.api.TimesheetRecord;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class SttRecordLoader implements RecordLoader {
 
 	private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -30,6 +33,8 @@ public class SttRecordLoader implements RecordLoader {
 	public List<TimesheetRecord> loadRecords(Map<String, String> params) throws Exception {
 
 		String filePath = params.get(FILE_PATH_PARAM);
+		log.info("Loading records from file: '{}'", filePath);
+
 		List<TimesheetRecord> records = new ArrayList<>();
 
 		try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
