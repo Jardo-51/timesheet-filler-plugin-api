@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension.ParamInfo;
+import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension.ParamType;
 import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension.RecordLoader;
 import com.jardoapps.timesheet.plugin.api.TimesheetRecord;
 
@@ -25,8 +26,15 @@ public class SttRecordLoader implements RecordLoader {
 
 	@Override
 	public List<ParamInfo> getParamInfos() {
-		// TODO Implement this
-		throw new UnsupportedOperationException("Not implemented yet.");
+
+		ParamInfo fileParam = ParamInfo.builder()
+				.id(FILE_PATH_PARAM)
+				.type(ParamType.FILE)
+				.name("Input file")
+				.description("Path to the file containing the records exported from Simple Task Tracker.")
+				.build();
+
+		return List.of(fileParam);
 	}
 
 	@Override
