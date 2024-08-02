@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.pf4j.DefaultPluginManager;
+import org.pf4j.JarPluginRepository;
 import org.pf4j.PluginManager;
+import org.pf4j.PluginRepository;
 
 import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension;
 
@@ -22,7 +24,7 @@ class PluginTest {
 
 		List<Path> pluginPaths = List.of(Paths.get("../simple-time-tracker-plugin/target/"));
 
-		PluginManager pluginManager = new DefaultPluginManager(pluginPaths);
+		PluginManager pluginManager = new JarOnlyPluginManager(pluginPaths);
 		pluginManager.loadPlugins();
 		pluginManager.startPlugins();
 
@@ -32,5 +34,23 @@ class PluginTest {
 				.toList();
 
 		assertThat(pluginNames).containsExactlyInAnyOrder("Simple Task Tracker App");
+	}
+
+	/**
+	 * Only load JAR files (ignore everything else on the specified paths).
+	 * <p>
+	 * The <code>DefaultPluginManager</code> tries to load every nested directory in
+	 * "target" and logs unnecessary errors.
+	 */
+	private static class JarOnlyPluginManager extends DefaultPluginManager {
+
+		public JarOnlyPluginManager(List<Path> pluginsRoots) {
+			super(pluginsRoots);
+		}
+
+		@Override
+		protected PluginRepository createPluginRepository() {
+			return new JarPluginRepository(getPluginsRoots());
+		}
 	}
 }
