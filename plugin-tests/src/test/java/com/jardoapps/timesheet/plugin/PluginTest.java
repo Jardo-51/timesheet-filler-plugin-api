@@ -33,7 +33,7 @@ class PluginTest {
 				.map(TimesheetFillerExtension::getName)
 				.toList();
 
-		assertThat(pluginNames).containsExactlyInAnyOrder("Simple Task Tracker App");
+		assertThat(pluginNames).containsExactlyInAnyOrder("Simple Time Tracker App");
 	}
 
 	/**

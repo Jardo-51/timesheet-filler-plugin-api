@@ -5,7 +5,7 @@ import org.pf4j.Plugin;
 
 import com.jardoapps.timesheet.plugin.api.TimesheetFillerExtension;
 
-public class SimpleTaskTrackerPlugin extends Plugin {
+public class SimpleTimeTrackerPlugin extends Plugin {
 
 	@Extension
 	public static class SttExtension implements TimesheetFillerExtension {
@@ -27,12 +27,12 @@ public class SimpleTaskTrackerPlugin extends Plugin {
 
 		@Override
 		public String getName() {
-			return "Simple Task Tracker App";
+			return "Simple Time Tracker App";
 		}
 
 		@Override
 		public String getDescription() {
-			return "Loads records exported from Simple Task Tracker application.";
+			return "Loads records exported from Simple Time Tracker application.";
 		}
 
 		@Override
@@ -42,12 +42,12 @@ public class SimpleTaskTrackerPlugin extends Plugin {
 
 		@Override
 		public RecordTransformer getTransformer() {
-			throw new UnsupportedOperationException("SimpleTaskTrackerPlugin does not support transforming.");
+			throw new UnsupportedOperationException("SimpleTimeTrackerPlugin does not support transforming.");
 		}
 
 		@Override
 		public RecordSaver getSaver() {
-			throw new UnsupportedOperationException("SimpleTaskTrackerPlugin does not support saving.");
+			throw new UnsupportedOperationException("SimpleTimeTrackerPlugin does not support saving.");
 		}
 
 	}
