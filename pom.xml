@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.jardoapps.timesheet</groupId>
-	<artifactId>timesheet-filler-plugin-parent</artifactId>
+	<artifactId>timesheet-filler-plugin-api</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>17</java.version>
@@ -15,119 +15,80 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<scm>
-		<developerConnection>scm:git:file://${project.basedir}</developerConnection>
-		<tag>HEAD</tag>
-	</scm>
+	<dependencies>
 
-	<modules>
-		<module>plugin-api</module>
-		<module>simple-time-tracker-plugin</module>
-		<module>http-plugin</module>
-	</modules>
+		<dependency>
+			<groupId>org.pf4j</groupId>
+			<artifactId>pf4j</artifactId>
+			<version>3.12.0</version>
+		</dependency>
 
-	<dependencyManagement>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
-		<dependencies>
-
-			<dependency>
-				<groupId>org.pf4j</groupId>
-				<artifactId>pf4j</artifactId>
-				<version>3.12.0</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-api</artifactId>
-				<version>5.10.3</version>
-				<scope>test</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.junit.jupiter</groupId>
-				<artifactId>junit-jupiter-engine</artifactId>
-				<version>5.10.3</version>
-				<scope>test</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.assertj</groupId>
-				<artifactId>assertj-core</artifactId>
-				<version>3.26.3</version>
-				<scope>test</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<version>1.5.6</version>
-				<scope>test</scope>
-			</dependency>
-
-		</dependencies>
-
-	</dependencyManagement>
+	</dependencies>
 
 	<build>
+		<plugins>
 
-		<pluginManagement>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 
-			<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.3.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.13.0</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-						<encoding>${project.build.sourceEncoding}</encoding>
-					</configuration>
-				</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.8.0</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<failOnError>false</failOnError>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-failsafe-plugin</artifactId>
-					<version>3.3.1</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>integration-test</goal>
-								<goal>verify</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-release-plugin</artifactId>
-					<version>3.1.1</version>
-					<configuration>
-						<autoResolveSnapshots>all</autoResolveSnapshots>
-						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<tagNameFormat>${maven.build.timestamp}_v@{project.version}</tagNameFormat>
-					</configuration>
-				</plugin>
-
-			</plugins>
-
-		</pluginManagement>
-
+		</plugins>
 	</build>
 
 	<distributionManagement>
 		<repository>
 			<id>github</id>
 			<name>GitHub Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/Jardo-51/timesheet-filler-plugins</url>
+			<url>https://maven.pkg.github.com/Jardo-51/timesheet-filler-plugin-api</url>
 		</repository>
 	</distributionManagement>
 
@@ -135,7 +96,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/Jardo-51/timesheet-filler-plugins</url>
+			<url>https://maven.pkg.github.com/Jardo-51/timesheet-filler-plugin-api</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
