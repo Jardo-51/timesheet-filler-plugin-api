@@ -28,17 +28,17 @@ public interface TimesheetFillerExtension extends ExtensionPoint {
 
 	public interface RecordLoader {
 		List<ParamInfo> getParamInfos();
-		List<TimesheetRecord> loadRecords(Map<String, String> params) throws Exception;
+		List<TimesheetRecord> loadRecords(Map<String, Object> params) throws Exception;
 	}
 
 	public interface RecordTransformer {
 		List<ParamInfo> getParamInfos();
-		List<TimesheetRecord> transformRecords(List<TimesheetRecord> records, Map<String, String> params);
+		List<TimesheetRecord> transformRecords(List<TimesheetRecord> records, Map<String, Object> params);
 	}
 
 	public interface RecordSaver {
 		List<ParamInfo> getParamInfos();
-		void saveRecords(List<TimesheetRecord> records, Map<String, String> params) throws Exception;
+		void saveRecords(List<TimesheetRecord> records, Map<String, Object> params) throws Exception;
 	}
 
 	@Value
