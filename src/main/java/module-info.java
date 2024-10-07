@@ -4,5 +4,7 @@ module com.jardoapps.timesheet.plugin.api {
 
 	requires static lombok;
 
+	opens com.jardoapps.timesheet.plugin.api;
+
 	exports com.jardoapps.timesheet.plugin.api;
 }
