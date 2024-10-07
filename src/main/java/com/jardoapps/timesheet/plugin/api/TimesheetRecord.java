@@ -3,11 +3,15 @@ package com.jardoapps.timesheet.plugin.api;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public final class TimesheetRecord {
 	private String project;
 	private LocalDateTime timeStarted;
