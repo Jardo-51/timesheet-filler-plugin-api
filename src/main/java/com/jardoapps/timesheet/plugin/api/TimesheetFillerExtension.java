@@ -48,7 +48,7 @@ public interface TimesheetFillerExtension extends ExtensionPoint {
 		private ParamType type;
 		private String name;
 		private String description;
-		private String defaultValue;
+		private Object defaultValue;
 		private boolean required;
 	}
 
