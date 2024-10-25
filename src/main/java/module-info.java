@@ -7,4 +7,5 @@ module com.jardoapps.timesheet.plugin.api {
 	opens com.jardoapps.timesheet.plugin.api;
 
 	exports com.jardoapps.timesheet.plugin.api;
+	exports com.jardoapps.timesheet.plugin.api.testing;
 }
