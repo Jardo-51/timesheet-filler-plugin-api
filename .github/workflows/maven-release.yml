@@ -63,12 +63,12 @@ jobs:
         git commit -a -m "Added next version to changelog."
 
     - name: Print changelog
-      if: true
+      if: false
       run: |
         cat "CHANGELOG.md"
 
     - name: GIT push
-      if: false
+      if: true
       run: |
         git push
         git push --tags
