@@ -5,7 +5,7 @@
 
 	<groupId>com.jardoapps.timesheet</groupId>
 	<artifactId>timesheet-filler-plugin-api</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -17,7 +17,7 @@
 
 	<scm>
 		<developerConnection>scm:git:file://${project.basedir}</developerConnection>
-		<tag>2024-10-27_13-36_v0.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencies>
